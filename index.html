@@ -173,7 +173,21 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 
 @keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-/* RESPONSIVE MOBILE */
+/* PARTICLES CANVAS */
+#particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.5;}
+
+/* TYPEWRITER */
+.typewriter-wrap{display:inline-block;}
+.tw-static{color:var(--text);}
+.tw-dynamic{color:var(--accent);border-right:2px solid var(--accent);padding-right:3px;animation:blink 0.8s step-end infinite;}
+@keyframes blink{0%,100%{border-color:var(--accent)}50%{border-color:transparent}}
+
+/* VIDEO BG */
+.video-bg-wrap{position:absolute;inset:0;overflow:hidden;z-index:0;}
+.video-bg-wrap video{width:100%;height:100%;object-fit:cover;opacity:0.08;}
+.video-bg-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(2,4,7,0.6) 0%,rgba(2,4,7,0.3) 50%,rgba(2,4,7,0.95) 100%);}
+
+
 @media(max-width:768px){
   .pain-grid{grid-template-columns:1fr;}
   .learn-grid{grid-template-columns:1fr;}
@@ -198,6 +212,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 </style>
 </head>
 <body>
+<canvas id="particles-canvas"></canvas>
 <div class="grid-bg"></div>
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
@@ -212,6 +227,11 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 
 <!-- HERO -->
 <section class="hero">
+  <div class="video-bg-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-neon-grid-39745-large.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
     <div class="eyebrow">Primul curs complet în română · Generare Video AI</div>
     <h1>
@@ -220,7 +240,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
       <span class="l3">ca un profesionist</span>
     </h1>
     <p class="hero-sub">
-      Înveți să generezi <strong>videoclipuri comerciale, animații și conținut artistic</strong> cu cele mai eficiente tool-uri AI — fără să pierzi luni testând singur ce funcționează și ce nu.
+      Înveți să generezi <span class="typewriter-wrap"><span class="tw-static"></span><span class="tw-dynamic" id="tw"></span></span> cu cele mai eficiente tool-uri AI — fără să pierzi luni testând singur.
     </p>
     <div class="pain-strip">
       <span>⚠ Fără curs: luni de teste, sute de euro irosite, rezultate mediocre</span>
@@ -504,8 +524,112 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 </footer>
 
 <script>
-let count = 341;
+// ── TYPEWRITER ───────────────────────────────
+const words = [
+  'reclame & ads profesionale',
+  'animații și desene animate',
+  'video artistic & editorial',
+  'conținut viral pentru TikTok',
+  'videoclipuri cinematografice'
+];
+let wi = 0, ci = 0, deleting = false;
+const twEl = document.getElementById('tw');
+function typeLoop() {
+  const word = words[wi];
+  if (!deleting) {
+    twEl.textContent = word.slice(0, ci + 1);
+    ci++;
+    if (ci === word.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+    setTimeout(typeLoop, 60);
+  } else {
+    twEl.textContent = word.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(typeLoop, 300); return; }
+    setTimeout(typeLoop, 35);
+  }
+}
+typeLoop();
 
+// ── PARTICLES ───────────────────────────────
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [], mouse = {x: null, y: null};
+const N = 80, MAX_DIST = 130;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r = Math.random() * 1.8 + 0.5;
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W) this.vx *= -1;
+    if (this.y < 0 || this.y > H) this.vy *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(99,211,255,0.7)';
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < N; i++) particles.push(new Particle());
+
+function drawLines() {
+  for (let i = 0; i < N; i++) {
+    for (let j = i + 1; j < N; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < MAX_DIST) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(99,211,255,${0.15 * (1 - d / MAX_DIST)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+    // Connect to mouse
+    if (mouse.x !== null) {
+      const dx = particles[i].x - mouse.x;
+      const dy = particles[i].y - mouse.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 150) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = `rgba(167,139,250,${0.3 * (1 - d / 150)})`;
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  drawLines();
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ── WAITLIST & COUNTER ───────────────────────
+let count = 341;
 function join(id) {
   const email = document.getElementById('e'+id).value.trim();
   if (!email || !email.includes('@')) {
@@ -521,13 +645,11 @@ function join(id) {
   document.getElementById('cnt').textContent = count;
 }
 
-// Animate counter on load
 let c = 310, target = 341;
 const el = document.getElementById('cnt');
 const iv = setInterval(() => {
   if (c >= target) { clearInterval(iv); return; }
-  c++;
-  el.textContent = c;
+  c++; el.textContent = c;
 }, 50);
 </script>
 </body>
