@@ -79,8 +79,8 @@ h1 .l3{display:block;color:rgba(232,237,245,0.25);font-size:0.5em;letter-spacing
 @keyframes sb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(7px)}}
 
 /* MARQUEE */
-.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--surface);overflow:hidden;position:relative;z-index:1;}
-.mq-track{display:flex;gap:0;animation:mq 22s linear infinite;white-space:nowrap;}
+.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--surface);overflow:hidden;position:relative;z-index:1;display:flex;justify-content:center;align-items:center;}
+.mq-track{display:flex;gap:0;animation:mq 18s linear infinite;white-space:nowrap;align-items:center;}
 .mq-item{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:0 28px;flex-shrink:0;}
 .mq-dot{color:var(--accent);padding:0 8px;}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -293,6 +293,99 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   .pi-row{flex-direction:column;gap:2px;}
   .pi-check{display:none;}
 }
+
+/* ABOUT SECTION */
+.about-section{padding:100px 0;background:var(--black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-text{}
+.about-intro{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:28px;font-weight:400;}
+.about-intro strong{color:var(--accent);}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+.skill-chip{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px;transition:border-color 0.2s;}
+.skill-chip:hover{border-color:var(--border-c);}
+.skill-icon{font-size:16px;flex-shrink:0;}
+.skill-label{font-size:12px;font-weight:600;color:var(--text);}
+.skill-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+.brands-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.brands-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
+.brand-tag{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 10px;text-transform:uppercase;}
+.brand-tag.hi{color:var(--accent);border-color:rgba(99,211,255,0.2);background:rgba(99,211,255,0.05);}
+.linkedin-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(99,211,255,0.07);border:1px solid rgba(99,211,255,0.2);border-radius:100px;padding:8px 18px;font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:1px;text-decoration:none;transition:all 0.2s;text-transform:uppercase;}
+.linkedin-btn:hover{background:rgba(99,211,255,0.15);border-color:rgba(99,211,255,0.5);}
+.linkedin-btn svg{width:14px;height:14px;fill:var(--accent);flex-shrink:0;}
+
+/* NETWORK VISUAL */
+.about-visual{display:flex;align-items:center;justify-content:center;}
+.network-wrap{position:relative;width:380px;height:380px;flex-shrink:0;}
+.network-svg{position:absolute;inset:0;width:100%;height:100%;}
+.net-line{stroke-dasharray:200;stroke-dashoffset:200;animation:drawLine 1.5s ease forwards;}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+.net-node{animation:nodePulse 3s ease-in-out infinite;}
+.n1{animation-delay:0s;}
+.n2{animation-delay:0.5s;}
+.n3{animation-delay:1s;}
+.n4{animation-delay:1.5s;}
+.n5{animation-delay:2s;}
+.n6{animation-delay:0.3s;}
+.n7{animation-delay:0.8s;}
+.n8{animation-delay:1.3s;}
+@keyframes nodePulse{0%,100%{opacity:0.5;r:4}50%{opacity:1;r:6}}
+
+.avatar-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+}
+.avatar-ring{
+  width:140px;height:140px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:3px;
+  display:inline-block;
+  animation:avatarGlow 3s ease-in-out infinite;
+  position:relative;
+}
+@keyframes avatarGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(99,211,255,0.3),0 0 30px rgba(99,211,255,0.15)}
+  50%{box-shadow:0 0 0 8px rgba(99,211,255,0.08),0 0 50px rgba(99,211,255,0.25)}
+}
+.avatar-ring img{width:134px;height:134px;border-radius:50%;object-fit:cover;object-position:center top;display:block;}
+.avatar-badge{
+  position:absolute;bottom:4px;right:4px;
+  width:26px;height:26px;
+  background:var(--accent3);border-radius:50%;
+  border:3px solid var(--black);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;
+}
+.avatar-name{font-size:13px;font-weight:700;color:var(--text);margin-top:12px;white-space:nowrap;}
+.avatar-role{font-family:var(--mono);font-size:8px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-top:3px;white-space:nowrap;}
+
+.node-label{
+  position:absolute;
+  font-family:var(--mono);font-size:8px;
+  color:rgba(99,211,255,0.6);
+  letter-spacing:1px;text-transform:uppercase;
+  white-space:nowrap;
+  background:rgba(99,211,255,0.05);
+  border:1px solid rgba(99,211,255,0.12);
+  border-radius:4px;padding:3px 7px;
+  animation:labelFloat 4s ease-in-out infinite;
+}
+.node-label:nth-child(odd){animation-delay:1s;}
+@keyframes labelFloat{0%,100%{opacity:0.6;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.nl-left{transform:translateY(-50%) !important;}
+
+@media(max-width:768px){
+  .about-layout{grid-template-columns:1fr !important;gap:40px;}
+  .about-visual{order:-1;}
+  .network-wrap{width:300px;height:300px;}
+  .avatar-ring{width:110px;height:110px;}
+  .avatar-ring img{width:104px;height:104px;}
+  .skills-grid{grid-template-columns:1fr !important;}
+  .about-section{padding:64px 0;}
+  .node-label{font-size:7px;padding:2px 5px;}
+}
 </style>
 </head>
 <body>
@@ -305,7 +398,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 <nav>
   <div class="nav-inner">
     <div class="logo">Video Artist <span>AI</span></div>
-    <div class="nav-pill">▶ Waitlist deschisă</div>
+    <div class="nav-pill">▶ Waitlist deschis</div>
   </div>
 </nav>
 
@@ -317,7 +410,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
     </video>
   </div>
   <div class="wrap" style="display:flex;flex-direction:column;align-items:center;">
-    <div class="eyebrow">Primul curs complet în română · Generare Video AI</div>
+    <div class="eyebrow">Curs complet în română · Generare Video AI</div>
     <h1>
       <span class="l1">Creezi videoclipuri</span>
       <span class="l2">cu AI</span>
@@ -338,8 +431,8 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
       <p class="form-note"><span class="hi">✦</span> Acces prioritar + preț special doar pentru cei din waitlist</p>
     </div>
     <div class="counters">
-      <div class="c-item"><span class="c-num" id="cnt">341</span><span class="c-label">pe waitlist</span></div>
-      <div class="c-item"><span class="c-num">6</span><span class="c-label">tool-uri acoperite</span></div>
+      <div class="c-item"><span class="c-num" id="cnt">247</span><span class="c-label">pe waitlist</span></div>
+      <div class="c-item"><span class="c-num">5</span><span class="c-label">tool-uri acoperite</span></div>
       <div class="c-item"><span class="c-num">3</span><span class="c-label">tipuri de video</span></div>
     </div>
   </div>
@@ -352,19 +445,15 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
     <span class="mq-item">Seedance 2.0</span><span class="mq-dot">◆</span>
     <span class="mq-item">Runway</span><span class="mq-dot">◆</span>
     <span class="mq-item">Higgsfield AI</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Google Veo</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Gemini</span><span class="mq-dot">◆</span>
     <span class="mq-item">Kling AI</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Suno</span><span class="mq-dot">◆</span>
-    <span class="mq-item">DaVinci Resolve</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Dreamina</span><span class="mq-dot">◆</span>
+    <span class="mq-item">CapCut</span><span class="mq-dot">◆</span>
     <span class="mq-item">Seedance 2.0</span><span class="mq-dot">◆</span>
     <span class="mq-item">Runway</span><span class="mq-dot">◆</span>
     <span class="mq-item">Higgsfield AI</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Google Veo</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Gemini</span><span class="mq-dot">◆</span>
     <span class="mq-item">Kling AI</span><span class="mq-dot">◆</span>
-    <span class="mq-item">Suno</span><span class="mq-dot">◆</span>
-    <span class="mq-item">DaVinci Resolve</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Dreamina</span><span class="mq-dot">◆</span>
+    <span class="mq-item">CapCut</span><span class="mq-dot">◆</span>
   </div>
 </div>
 
@@ -476,19 +565,20 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
         <p>Stiluri cinematografice unice, control de cameră avansat. Perfect pentru video artistic și conținut cu estetică distinctivă.</p>
         <div class="tool-price">✓ Ideal pentru conținut artistic</div>
       </div>
-      <div class="tool-card">
-        <span class="tool-badge badge-pro">GOOGLE</span>
-        <span class="tool-icon">🔮</span>
-        <h3>Google Veo + Gemini</h3>
-        <p>Cel mai avansat model de la Google DeepMind. Fizică realistă, scene complexe. Accesibil prin Gemini și Google Flow.</p>
-        <div class="tool-price">✓ Cel mai realist pentru scene live-action</div>
-      </div>
+
       <div class="tool-card">
         <span class="tool-badge badge-best">TOP PICK</span>
         <span class="tool-icon">🎭</span>
         <h3>Kling AI</h3>
         <p>Personaje consistente, motion brush, lip sync. Excelent pentru reclame și videouri cu personaje recurente în mai multe scene.</p>
         <div class="tool-price">✓ Cel mai bun raport calitate-preț</div>
+      </div>
+      <div class="tool-card">
+        <span class="tool-badge badge-best">TOP PICK</span>
+        <span class="tool-icon">✨</span>
+        <h3>Dreamina CapCut</h3>
+        <p>Generare video și editare mobilă ultra-accesibilă. Ideal pentru conținut rapid, reclame sociale și creatives pentru ads.</p>
+        <div class="tool-price">✓ Cel mai accesibil pentru beginners</div>
       </div>
 
     </div>
@@ -506,7 +596,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
     <div class="learn-grid">
       <div class="learn-item">
         <span class="l-num">01</span>
-        <div><h4>Prompts care funcționează de prima dată</h4><p>Formula exactă per tool — nu ghicești, nu iterezi la infinit. Structură, intenție, precizie.</p></div>
+        <div><h4>Prompts care funcționează din prima</h4><p>Formula exactă per tool — nu ghicești, nu iterezi la infinit. Structură, intenție, precizie.</p></div>
       </div>
       <div class="learn-item">
         <span class="l-num">02</span>
@@ -516,18 +606,12 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
         <span class="l-num">03</span>
         <div><h4>Desene animate & animații cartoon</h4><p>Personaje consistente, scene fluide, stil Pixar sau 2D. Seedance 2.0 + Kling pentru character lock.</p></div>
       </div>
-      <div class="learn-item">
-        <span class="l-num">04</span>
-        <div><h4>Video artistic & editorial</h4><p>Higgsfield AI pentru estetică distinctivă. Videouri care arată ca producții de film, generate din text.</p></div>
-      </div>
+
       <div class="learn-item">
         <span class="l-num">05</span>
         <div><h4>Workflow complet: idee → publicat</h4><p>De la prompt la clip editat și uploadat în mai puțin de 30 de minute. Sistem repetabil, scalabil.</p></div>
       </div>
-      <div class="learn-item">
-        <span class="l-num">06</span>
-        <div><h4>Monetizare & distribuție organică</h4><p>YouTube, TikTok, Social Media. Trafic organic fără paid ads, strategie de titluri și thumbnails.</p></div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -537,7 +621,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   <div class="wrap">
     <div class="s-label">Bonus exclusiv</div>
     <h2>Mai mult decât <span class="ac2">te aștepți</span></h2>
-    <p class="s-sub">Trei bonusuri incluse fără costuri suplimentare.</p>
+    <p class="s-sub">Două bonusuri incluse fără costuri suplimentare.</p>
     <div class="bonus-grid">
       <div class="bonus-card">
         <h3>Site-uri de prezentare cu Claude AI</h3>
@@ -545,12 +629,9 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
       </div>
       <div class="bonus-card">
         <h3>Generare poze pentru Ads</h3>
-        <p>Cele mai ieftine și eficiente tool-uri pentru imagini AI: Midjourney, Flux, Ideogram. Creatives pentru reclame care convertesc.</p>
+        <p>Cele mai ieftine și eficiente tool-uri pentru imagini AI. Creatives pentru reclame care convertesc.</p>
       </div>
-      <div class="bonus-card">
-        <h3>Ghid tool-uri accesibile & profitabile</h3>
-        <p>Comparativ complet: ce merită plătit, ce e gratuit și funcționează, ce e hype fără substanță. Economisești sute de euro.</p>
-      </div>
+
     </div>
   </div>
 </section>
@@ -561,18 +642,18 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
     <div class="s-label" style="justify-content:center;">Investiție</div>
     <h2 style="text-align:center;margin-bottom:48px;">Un preț. <span class="ac">Acces pe viață.</span></h2>
     <div class="price-box">
-      <div class="price-tag-old">397 RON</div>
+      <div class="price-tag-old">399 RON</div>
       <div class="price-tag">279 <small>RON</small></div>
       <div class="price-label">Preț special pentru waitlist · Plată unică</div>
       <div class="price-includes">
-        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">6 module complete + lecții practice</div><div class="pi-sub">Seedance, Runway, Higgsfield, Veo, Gemini, Kling</div></div></div>
-        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">3 tipuri de video acoperite</div><div class="pi-sub">Comerciale & ads, animații, video artistic</div></div></div>
+        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">5 module complete + lecții practice</div><div class="pi-sub">Seedance, Runway, Higgsfield, Kling, Dreamina</div></div></div>
+        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">2 tipuri de video acoperite</div><div class="pi-sub">Comerciale & ads, animații</div></div></div>
         <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">Bonus: site-uri cu Claude AI</div><div class="pi-sub">Landing pages fără cod, în câteva minute</div></div></div>
-        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">Bonus: Ghid generare poze pentru ads</div><div class="pi-sub">Midjourney, Flux, Ideogram — cel mai bun raport</div></div></div>
-        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">Acces pe viață + toate actualizările</div><div class="pi-sub">AI evoluează rapid — cursul evoluează cu el</div></div></div>
+        <div class="pi-row"><span class="pi-check">✓</span><div><div class="pi-text">Bonus: Ghid generare poze pentru ads</div></div></div>
+
 
       </div>
-      <div class="urgency"><div class="urgency-dot"></div>Prețul crește la 397 RON la lansarea oficială</div>
+      <div class="urgency"><div class="urgency-dot"></div>Prețul crește la 399 RON la lansarea oficială</div>
       <div class="form-row" id="f2">
         <input type="email" id="e2" placeholder="adresa ta de email">
         <button class="btn-join" onclick="join('2')">Rezerv prețul meu</button>
@@ -583,12 +664,99 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   </div>
 </section>
 
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="wrap">
+    <div class="about-layout">
+
+      <!-- LEFT: TEXT -->
+      <div class="about-text">
+        <div class="s-label">Cine predă cursul</div>
+        <h2>Nu înveți de la un <span class="ac2">teoretician.</span></h2>
+
+        <p class="about-intro">Am lucrat în marketing pentru <strong>BestJobs</strong> și <strong>Vivre</strong> — branduri cu audiențe de milioane 💎. De la strategie și brand management, până la campanii plătite și analiză de date. Știu ce înseamnă să produci rezultate cu presiune reală pe ele.</p>
+
+        <div class="skills-grid">
+          <div class="skill-chip">
+            <span class="skill-icon">🎬</span>
+            <div><div class="skill-label">AI Video Generation</div><div class="skill-sub">Runway, Kling, Seedance</div></div>
+          </div>
+          <div class="skill-chip">
+            <span class="skill-icon">📊</span>
+            <div><div class="skill-label">Marketing Data Analysis</div><div class="skill-sub">Performanță, atribuire, ROI</div></div>
+          </div>
+          <div class="skill-chip">
+            <span class="skill-icon">🎯</span>
+            <div><div class="skill-label">PPC &amp; Paid Ads</div><div class="skill-sub">Google Ads, Meta, TikTok Ads</div></div>
+          </div>
+          <div class="skill-chip">
+            <span class="skill-icon">🔍</span>
+            <div><div class="skill-label">AEO &amp; Brand Strategy</div><div class="skill-sub">Answer Engine Optimization</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: AVATAR + NETWORK SVG -->
+      <div class="about-visual">
+        <div class="network-wrap">
+          <svg class="network-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+            <line x1="210" y1="210" x2="60" y2="80" stroke="rgba(99,211,255,0.2)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="360" y2="70" stroke="rgba(167,139,250,0.2)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="50" y2="320" stroke="rgba(99,211,255,0.15)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="370" y2="310" stroke="rgba(167,139,250,0.15)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="200" y2="40" stroke="rgba(52,211,153,0.15)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="210" y2="390" stroke="rgba(99,211,255,0.1)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="30" y2="200" stroke="rgba(167,139,250,0.12)" stroke-width="1" class="net-line"/>
+            <line x1="210" y1="210" x2="390" y2="190" stroke="rgba(52,211,153,0.12)" stroke-width="1" class="net-line"/>
+            <line x1="60" y1="80" x2="200" y2="40" stroke="rgba(99,211,255,0.07)" stroke-width="1"/>
+            <line x1="360" y1="70" x2="200" y2="40" stroke="rgba(167,139,250,0.07)" stroke-width="1"/>
+            <line x1="50" y1="320" x2="30" y2="200" stroke="rgba(99,211,255,0.06)" stroke-width="1"/>
+            <line x1="370" y1="310" x2="390" y2="190" stroke="rgba(167,139,250,0.06)" stroke-width="1"/>
+            <circle cx="60" cy="80" r="5" fill="rgba(99,211,255,0.6)" class="net-node n1"/>
+            <circle cx="360" cy="70" r="4" fill="rgba(167,139,250,0.6)" class="net-node n2"/>
+            <circle cx="50" cy="320" r="6" fill="rgba(99,211,255,0.5)" class="net-node n3"/>
+            <circle cx="370" cy="310" r="4" fill="rgba(167,139,250,0.5)" class="net-node n4"/>
+            <circle cx="200" cy="40" r="3" fill="rgba(52,211,153,0.6)" class="net-node n5"/>
+            <circle cx="210" cy="390" r="4" fill="rgba(99,211,255,0.4)" class="net-node n6"/>
+            <circle cx="30" cy="200" r="3" fill="rgba(167,139,250,0.4)" class="net-node n7"/>
+            <circle cx="390" cy="190" r="5" fill="rgba(52,211,153,0.5)" class="net-node n8"/>
+            <circle cx="130" cy="130" r="2" fill="rgba(99,211,255,0.2)" class="net-node n2"/>
+            <circle cx="300" cy="150" r="2" fill="rgba(167,139,250,0.2)" class="net-node n3"/>
+            <circle cx="110" cy="300" r="2" fill="rgba(52,211,153,0.18)" class="net-node n1"/>
+            <circle cx="320" cy="290" r="2" fill="rgba(99,211,255,0.18)" class="net-node n4"/>
+          </svg>
+
+          <div class="avatar-center">
+            <div class="avatar-ring">
+              <img src="data:image/jpeg;base64,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" alt="Cristina Ceban">
+            </div>
+            <div class="avatar-badge">✓</div>
+            <div class="avatar-name">Cristina Ceban</div>
+            <div class="avatar-role">Senior Marketer</div>
+          </div>
+
+          <div class="node-label" style="top:52px;left:18px;">PPC Ads</div>
+          <div class="node-label" style="top:44px;right:18px;">AI Video</div>
+          <div class="node-label" style="bottom:78px;left:8px;">Brand Mgmt</div>
+          <div class="node-label" style="bottom:68px;right:8px;">Data Analysis</div>
+          <div class="node-label" style="top:4px;left:50%;transform:translateX(-50%);">AEO</div>
+          <div class="node-label" style="bottom:0px;left:50%;transform:translateX(-50%);">Strategy</div>
+          <div class="node-label nl-left" style="top:50%;left:0;transform:translateY(-50%);">Content</div>
+          <div class="node-label" style="top:50%;right:0;transform:translateY(-50%);">Growth</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- BOTTOM CTA -->
 <div class="bottom-cta">
   <div class="wrap">
     <div class="s-label" style="justify-content:center;">Ultimul pas</div>
     <h2>Nu mai pierde timp <span class="ac">testând singur.</span></h2>
-    <p class="s-sub" style="margin:0 auto 40px;">Înscrie-te în waitlist acum și primești acces prioritar + prețul special de lansare — 279 RON în loc de 397 RON.</p>
+    <p class="s-sub" style="margin:0 auto 40px;">Înscrie-te în waitlist acum și primești acces prioritar + prețul special de lansare — 279 RON în loc de 399 RON.</p>
     <div class="cta-block" style="margin-top:0;">
       <div class="form-row" id="f3">
         <input type="email" id="e3" placeholder="adresa ta de email">
@@ -603,18 +771,18 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 <footer>
   <div class="wrap">
     <p>© 2025 Video Artist AI — Toate drepturile rezervate</p>
-    <p style="margin-top:8px;"><a href="mailto:marketing.videoartist@gmail.com" style="color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:1px;">marketing.videoartist@gmail.com</a></p>
+    <p style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;">Contact: <a href="mailto:marketing.videoartist@gmail.com" style="color:var(--accent);text-decoration:none;">marketing.videoartist@gmail.com</a></p>
   </div>
 </footer>
 
 <script>
 // ── TYPEWRITER ───────────────────────────────
 const words = [
-  'reclame & ads profesionale',
-  'animații și desene animate',
-  'video artistic & editorial',
-  'conținut viral pentru TikTok',
-  'videoclipuri cinematografice'
+  'animații scurte',
+  'desene animate',
+  'videouri comerciale',
+  'videouri artistice',
+  'videouri AI pentru social media'
 ];
 let wi = 0, ci = 0, deleting = false;
 const twEl = document.getElementById('tw');
@@ -729,7 +897,7 @@ function join(id) {
   document.getElementById('cnt').textContent = count;
 }
 
-let c = 310, target = 341;
+let c = 220, target = 247;
 const el = document.getElementById('cnt');
 const iv = setInterval(() => {
   if (c >= target) { clearInterval(iv); return; }
