@@ -79,11 +79,11 @@ h1 .l3{display:block;color:rgba(232,237,245,0.25);font-size:0.5em;letter-spacing
 @keyframes sb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(7px)}}
 
 /* MARQUEE */
-.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--surface);overflow:hidden;position:relative;z-index:1;display:flex;justify-content:center;align-items:center;}
-.mq-track{display:flex;gap:0;animation:mq 18s linear infinite;white-space:nowrap;align-items:center;}
+.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--surface);overflow:hidden;position:relative;z-index:1;}
+.mq-track{display:flex;gap:0;animation:mq 16s linear infinite;white-space:nowrap;width:max-content;}
 .mq-item{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:0 28px;flex-shrink:0;}
 .mq-dot{color:var(--accent);padding:0 8px;}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 
 /* SECTIONS */
 section{padding:100px 0;position:relative;z-index:1;}
@@ -268,8 +268,10 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   .sol-check{width:18px;height:18px;font-size:9px;flex-shrink:0;}
 
   /* MARQUEE */
-  .mq-item{font-size:9px;padding:0 12px;}
-  .mq-wrap{justify-content:flex-start;}
+  .mq-item{font-size:8px;padding:0 10px;letter-spacing:1px;}
+  .mq-dot{font-size:10px;padding:0 4px;}
+  .mq-wrap{padding:10px 0;}
+  .mq-track{animation-duration:12s;}
 
   /* SCROLL HINT */
   .scroll-hint{bottom:16px;}
@@ -311,6 +313,8 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   .node-label{font-size:6px !important;padding:2px 4px !important;}
   .avatar-ring{width:88px !important;height:88px !important;}
   .avatar-ring img{width:82px !important;height:82px !important;}
+  .mq-item{font-size:7px !important;padding:0 8px !important;letter-spacing:0.5px;}
+  .mq-track{animation-duration:10s;}
 }
 
 /* ABOUT SECTION */
@@ -369,14 +373,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   50%{box-shadow:0 0 0 8px rgba(99,211,255,0.08),0 0 50px rgba(99,211,255,0.25)}
 }
 .avatar-ring img{width:134px;height:134px;border-radius:50%;object-fit:cover;object-position:center top;display:block;}
-.avatar-badge{
-  position:absolute;bottom:4px;right:4px;
-  width:26px;height:26px;
-  background:var(--accent3);border-radius:50%;
-  border:3px solid var(--black);
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;
-}
+.avatar-badge{display:none;}
 .avatar-name{font-size:13px;font-weight:700;color:var(--text);margin-top:12px;white-space:nowrap;}
 .avatar-role{font-family:var(--mono);font-size:8px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-top:3px;white-space:nowrap;}
 
@@ -452,7 +449,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
     <div class="counters">
       <div class="c-item"><span class="c-num" id="cnt">247</span><span class="c-label">pe waitlist</span></div>
       <div class="c-item"><span class="c-num">5</span><span class="c-label">tool-uri acoperite</span></div>
-      <div class="c-item"><span class="c-num">3</span><span class="c-label">tipuri de video</span></div>
+      <div class="c-item"><span class="c-num">2</span><span class="c-label">tipuri de video</span></div>
     </div>
   </div>
   <div class="scroll-hint"><p>scroll</p><div class="scroll-arr"></div></div>
@@ -461,6 +458,18 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 <!-- MARQUEE -->
 <div class="mq-wrap">
   <div class="mq-track">
+    <span class="mq-item">Seedance 2.0</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Runway</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Higgsfield AI</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Kling AI</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Dreamina</span><span class="mq-dot">◆</span>
+    <span class="mq-item">CapCut</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Seedance 2.0</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Runway</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Higgsfield AI</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Kling AI</span><span class="mq-dot">◆</span>
+    <span class="mq-item">Dreamina</span><span class="mq-dot">◆</span>
+    <span class="mq-item">CapCut</span><span class="mq-dot">◆</span>
     <span class="mq-item">Seedance 2.0</span><span class="mq-dot">◆</span>
     <span class="mq-item">Runway</span><span class="mq-dot">◆</span>
     <span class="mq-item">Higgsfield AI</span><span class="mq-dot">◆</span>
