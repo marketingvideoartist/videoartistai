@@ -195,7 +195,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   /* LAYOUT */
   .wrap{padding:0 16px !important;}
   .nav-inner{padding:0 16px !important;}
-  section{padding:56px 0;}
+  section{padding:52px 0;}
 
   /* NAV */
   .logo{font-size:13px;letter-spacing:1px;}
@@ -203,22 +203,23 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 
   /* HERO */
   .hero{padding:100px 16px 60px;min-height:auto;}
-  h1{font-size:clamp(30px,8vw,48px) !important;letter-spacing:-0.5px;line-height:1.1;}
-  .hero-sub{font-size:14px;padding:0;}
-  .eyebrow{font-size:8px;letter-spacing:1px;}
+  h1{font-size:clamp(32px,8vw,52px) !important;letter-spacing:-0.5px;line-height:1.1;}
+  .hero-sub{font-size:15px;padding:0;line-height:1.7;}
+  .eyebrow{font-size:9px;letter-spacing:1px;}
   .eyebrow::before,.eyebrow::after{width:18px;}
   .pain-strip{margin-bottom:28px;}
-  .pain-strip span{font-size:9px;}
+  .pain-strip span{font-size:10px;}
 
   /* FORM */
   .form-row{flex-direction:column;gap:8px;padding:10px;}
-  .form-row input{padding:12px 14px;font-size:14px;width:100%;}
-  .btn-join{width:100%;padding:13px;font-size:11px;}
+  .form-row input{padding:12px 14px;font-size:15px;width:100%;}
+  .btn-join{width:100%;padding:14px;font-size:12px;}
+  .form-note{font-size:11px;}
 
   /* COUNTERS */
   .counters{gap:12px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
-  .c-num{font-size:22px;}
-  .c-label{font-size:9px;}
+  .c-num{font-size:24px;}
+  .c-label{font-size:10px;}
 
   /* GRIDS → 1 coloana */
   .pain-grid{grid-template-columns:1fr !important;}
@@ -229,46 +230,54 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   .sol-grid{grid-template-columns:1fr !important;gap:32px !important;}
 
   /* H2 */
-  h2{font-size:clamp(22px,6vw,32px) !important;letter-spacing:-0.2px;}
-  .s-sub{font-size:14px;max-width:100% !important;}
+  h2{font-size:clamp(24px,6vw,34px) !important;letter-spacing:-0.2px;}
+  .s-sub{font-size:15px;max-width:100% !important;line-height:1.7;}
+  .s-label{font-size:10px !important;}
 
   /* PAIN CARDS */
   .pain-card{padding:20px 16px;}
-  .pain-card h3{font-size:14px;}
-  .pain-card p{font-size:13px;}
+  .pain-card h3{font-size:15px;}
+  .pain-card p{font-size:13px;line-height:1.65;}
 
   /* TOOL CARDS */
   .tool-card{padding:20px 16px;}
-  .tool-card h3{font-size:14px;}
+  .tool-card h3{font-size:15px;}
+  .tool-card p{font-size:13px;}
+  .tool-price{font-size:11px;}
   .tool-badge{font-size:7px;padding:2px 7px;top:12px;right:12px;}
 
   /* LEARN */
-  .learn-item{padding:16px 14px;}
-  .learn-item h4{font-size:13px;}
-  .learn-item p{font-size:12px;}
+  .learn-item{padding:18px 16px;}
+  .learn-item h4{font-size:14px;}
+  .learn-item p{font-size:13px;line-height:1.6;}
+  .l-num{font-size:11px;}
 
   /* BONUS */
   .bonus-card{padding:20px 16px;}
-  .bonus-card h3{font-size:14px;}
-  .bonus-card p{font-size:12px;}
+  .bonus-card h3{font-size:15px;}
+  .bonus-card p{font-size:13px;}
 
   /* PRICE */
-  .price-box{padding:24px 16px;margin:0 4px;}
-  .price-tag{font-size:38px !important;}
-  .price-tag-old{font-size:12px;}
-  .pi-text{font-size:12px;}
-  .pi-sub{font-size:10px;}
+  .price-box{padding:28px 20px;margin:0 4px;}
+  .price-tag{font-size:44px !important;}
+  .price-tag-old{font-size:13px;}
+  .price-label{font-size:10px;}
+  .pi-text{font-size:13px;}
+  .pi-sub{font-size:11px;}
   .price-section .s-label{justify-content:center;}
+  .urgency{flex-direction:column;gap:6px;text-align:center;font-size:10px;padding:0 8px;line-height:1.5;}
+  .urgency-dot{display:none;}
+  .market-note{font-size:11px;}
 
   /* BOTTOM CTA */
   .bottom-cta{padding:56px 16px;}
 
   /* SOLUTION CHECK LIST */
-  .sol-text{font-size:13px;}
-  .sol-check{width:18px;height:18px;font-size:9px;flex-shrink:0;}
+  .sol-text{font-size:14px;line-height:1.6;}
+  .sol-check{width:20px;height:20px;font-size:10px;flex-shrink:0;}
 
   /* MARQUEE */
-  .mq-item{font-size:8px;padding:0 10px;letter-spacing:1px;}
+  .mq-item{font-size:9px;padding:0 12px;letter-spacing:1px;}
   .mq-dot{font-size:10px;padding:0 4px;}
   .mq-wrap{padding:10px 0;}
   .mq-track{animation-duration:12s;}
@@ -279,42 +288,45 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
   /* VIDEO BG */
   .video-bg-wrap video{opacity:0.05;}
 
-  /* ORBS - hide on mobile to prevent overflow */
+  /* ORBS */
   .orb{display:none;}
 
   /* ABOUT */
   .about-layout{grid-template-columns:1fr !important;gap:36px;}
   .about-visual{order:-1;}
-  .network-wrap{width:280px !important;height:280px !important;margin:0 auto;}
-  .avatar-ring{width:100px !important;height:100px !important;}
-  .avatar-ring img{width:94px !important;height:94px !important;}
-  .avatar-name{font-size:11px;}
-  .avatar-role{font-size:7px;}
-  .node-label{font-size:7px !important;padding:2px 5px !important;}
+  .network-wrap{width:300px !important;height:300px !important;margin:0 auto;}
+  .avatar-ring{width:110px !important;height:110px !important;}
+  .avatar-ring img{width:104px !important;height:104px !important;}
+  .avatar-name{font-size:13px;}
+  .avatar-role{font-size:8px;letter-spacing:1.5px;}
+  .node-label{font-size:8px !important;padding:3px 6px !important;}
   .nl-left{transform:translateY(-50%) !important;}
   .skills-grid{grid-template-columns:1fr !important;}
+  .skill-label{font-size:13px;}
+  .skill-sub{font-size:11px;}
   .about-section{padding:56px 0;}
-  .about-intro{font-size:14px;}
+  .about-intro{font-size:15px;line-height:1.8;}
 }
 
 @media(max-width:480px){
   .video-types{grid-template-columns:1fr !important;}
   .counters{gap:10px;}
-  .c-num{font-size:20px;}
-  h1{font-size:clamp(28px,9vw,40px) !important;}
-  .hero-sub{font-size:13px;}
-  .price-tag{font-size:32px !important;}
-  .pain-strip span{font-size:8px;}
-  .eyebrow{font-size:7px;gap:6px;}
+  .c-num{font-size:22px;}
+  .c-label{font-size:9px;}
+  h1{font-size:clamp(30px,9vw,42px) !important;}
+  .hero-sub{font-size:14px;}
+  .pain-strip span{font-size:9px;}
+  .eyebrow{font-size:8px;gap:6px;}
   .eyebrow::before,.eyebrow::after{width:14px;}
-  .pi-row{flex-direction:column;gap:2px;}
-  .pi-check{display:none;}
-  .network-wrap{width:240px !important;height:240px !important;}
-  .node-label{font-size:6px !important;padding:2px 4px !important;}
-  .avatar-ring{width:88px !important;height:88px !important;}
-  .avatar-ring img{width:82px !important;height:82px !important;}
-  .mq-item{font-size:7px !important;padding:0 8px !important;letter-spacing:0.5px;}
+  .price-tag{font-size:38px !important;}
+  .pi-row{gap:4px;}
+  .network-wrap{width:260px !important;height:260px !important;}
+  .node-label{font-size:7px !important;padding:2px 5px !important;}
+  .avatar-ring{width:96px !important;height:96px !important;}
+  .avatar-ring img{width:90px !important;height:90px !important;}
+  .mq-item{font-size:8px !important;padding:0 10px !important;letter-spacing:0.5px;}
   .mq-track{animation-duration:10s;}
+  .urgency{font-size:10px;padding:0 4px;}
 }
 
 /* ABOUT SECTION */
@@ -546,11 +558,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
             <h4>Animații</h4>
             <p>Cartoon & desene animate</p>
           </div>
-          <div class="vtype" style="border-color:rgba(52,211,153,0.12);background:rgba(52,211,153,0.04);">
-            <span class="vtype-icon">🎨</span>
-            <h4>Video artistic</h4>
-            <p>Conținut creativ & editorial</p>
-          </div>
+
           <div class="vtype" style="border-color:rgba(245,158,11,0.12);background:rgba(245,158,11,0.04);">
             <span class="vtype-icon">📱</span>
             <h4>Social Media</h4>
@@ -569,7 +577,7 @@ footer p{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacin
 <section>
   <div class="wrap">
     <div class="s-label">Tool-uri acoperite</div>
-    <h2>6 tool-uri. <span class="ac">Selectate pentru tine.</span></h2>
+    <h2>5 tool-uri. <span class="ac">Selectate pentru tine.</span></h2>
     <p class="s-sub">Nu le înveți pe toate orbește — înveți care e cel mai eficient pentru fiecare scop, cu cel mai bun raport calitate-preț.</p>
     <div class="tools-grid">
       <div class="tool-card">
